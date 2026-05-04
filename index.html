@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health</title>
+
+    <script>!function (i, n) { i._plt = i._plt || (n && n.timeOrigin ? n.timeOrigin + n.now() : Date.now()) }(window, performance);</script>
+    <link rel="preload"
+        href="https://scripts.converteai.net/3fcb5eb7-6064-4fa5-a42b-3e2dd5274311/ab-test/69f8ebc1f4d26cf4d5d08624/player.js"
+        as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header-top {
+            background-color: #c41220;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .header-title {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .ticker-wrap {
+            width: 100%;
+            background-color: #8b0000;
+            overflow: hidden;
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker-move {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 100%;
+            animation: ticker 25s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding: 0 2rem;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-left: 3px solid #c41220;
+            padding-left: 10px;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 14px;
+            color: #000;
+        }
+
+        .post-time,
+        .post-date {
+            font-size: 12px;
+            color: #999;
+            margin-top: 2px;
+        }
+
+        .social-shares {
+            display: flex;
+            gap: 2px;
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 12px;
+            border-radius: 2px;
+        }
+
+        .fb {
+            background-color: #3b5998;
+        }
+
+        .yt {
+            background-color: #c4302b;
+        }
+
+        .gp {
+            background-color: #dd4b39;
+        }
+
+        .tw {
+            background-color: #00aced;
+        }
+
+        .headline-section {
+            margin-bottom: 20px;
+        }
+
+        .sub-headline {
+            font-style: italic;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .main-headline {
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1.2;
+            color: #000;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .highlight-red {
+            color: #c41220;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .disclaimer {
+            font-weight: 700;
+            font-size: 18px;
+            color: #000;
+            border-left: 3px solid #c41220;
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            text-align: center;
+        }
+
+        .video-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+
+        .footer-logos span {
+            font-weight: bold;
+            font-size: 20px;
+            font-family: serif;
+            color: #000;
+        }
+
+        .logo-cbs {
+            font-family: sans-serif;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo-abc {
+            border-radius: 50%;
+            background: #000;
+            color: #fff !important;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px !important;
+            font-family: sans-serif;
+        }
+
+        .logo-fox {
+            font-family: sans-serif;
+            font-weight: 900;
+        }
+
+        .logo-cnn {
+            font-family: sans-serif;
+            font-weight: 900;
+            color: #c41220 !important;
+        }
+
+        @media (max-width: 600px) {
+            .main-headline {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="header-title">HEALTH</div>
+            <svg class="search-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+            </svg>
+        </div>
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+                <span class="ticker-item">DAILY UPDATES ON WELLNESS AND HEALTH - DAILY UPDATES ON WELLNESS AND HEALTH -
+                    DAILY UPDATES ON WELLNESS AND HEALTH - DAILY UPDATES ON WELLNESS AND HEALTH - DAILY UPDATES ON
+                    WELLNESS AND HEALTH</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="article-meta">
+            <div class="author-info">
+                <span class="author-name">Dr. Jennifer Ashton</span>
+                <span class="post-time">Updated 30 minutes ago</span>
+                <span class="post-date">04/05/2026</span>
+            </div>
+            <div class="social-shares">
+                <div class="social-icon fb">
+                    <svg width="10" height="10" viewBox="0 0 320 512" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                    </svg>
+                </div>
+                <div class="social-icon yt">
+                    <svg width="10" height="10" viewBox="0 0 576 512" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+                    </svg>
+                </div>
+                <div class="social-icon gp">
+                    <svg width="10" height="10" viewBox="0 0 488 512" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
+                    </svg>
+                </div>
+                <div class="social-icon tw">
+                    <svg width="10" height="10" viewBox="0 0 512 512" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.792 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.792-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="headline-section">
+            <p class="sub-headline">Hollywood's top Endocrinologist exposes...</p>
+            <h1 class="main-headline"><span class="underline">Better Than Ozempic</span>? Tap Play To See The <span
+                    class="highlight-red">Pink Gelatin</span> Celebs Swear By To Crush Hunger And Drop 24lbs</h1>
+        </div>
+
+        <p class="disclaimer">(Without Side Effects)</p>
+
+        <div>
+            <vturb-smartplayer id="ab-69f8ebc1f4d26cf4d5d08624"
+                style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
+            <script
+                type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/3fcb5eb7-6064-4fa5-a42b-3e2dd5274311/ab-test/69f8ebc1f4d26cf4d5d08624/player.js", s.async = !0, document.head.appendChild(s); </script>
+        </div>
+
+        <div class="video-container">
+            <img src="ref.webp" alt="Video Placeholder">
+        </div>
+    </main>
+
+</body>
+
+</html>
